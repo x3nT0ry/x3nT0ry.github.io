@@ -150,7 +150,7 @@ body {
 
 .successMsg {
     font-size: inherit;
-    padding: 20px 10;
+    padding: 20px 10px;
     position: fixed;
     bottom: 5%;
     left: 2%;
@@ -213,6 +213,8 @@ body {
 
 .popup-back {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
@@ -340,6 +342,7 @@ body {
 }
 .ptb20 {
     padding: 20px 0;
+    display: flex;
 }
 
 input[type="date"] {
@@ -422,4 +425,265 @@ td.id {
 th.actions,
 td.actions {
     width: 10%;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: #313131;
+    height: 80px;
+}
+
+.header .wrapper {
+    width: 100%;
+    display: flex;
+}
+
+.header .flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-direction: row-reverse;
+}
+
+.header .w20,
+.header .w70,
+.header .w10 {
+    display: flex;
+    align-items: center;
+}
+
+.header .w20 {
+    width: 20%;
+    justify-content: right;
+}
+
+.header .w70 {
+    width: 70%;
+    justify-content: right;
+    flex-direction: row-reverse;
+    align-items: right;
+    text-align: right;
+}
+
+.header .w10 {
+    width: 10%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+.fas.fa-caret-down {
+    color: white;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#menu ul.active {
+    display: block;
+}
+
+#menu ul li {
+    color: #fff;
+}
+
+#menu ul li a {
+    gap: 5px;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 29px 20px;
+    transition: background-color 0.3s, color 0.3s;
+    position: relative;
+    font-size: 18px;
+}
+
+#menu ul li a.router-link-active {
+    color: rgb(0, 196, 119);
+}
+
+#menu ul li a.router-link-active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: rgb(0, 196, 119);
+}
+
+#menu ul li a:hover {
+    background-color: rgb(44, 44, 44);
+    color: rgb(0, 196, 119);
+}
+
+#menu ul li a i {
+    order: 1;
+}
+
+#user-top {
+    position: relative;
+}
+
+#user-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #1e1e1e;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#user-info {
+    width: 100%;
+    position: absolute;
+    top: 45px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 7px;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#user-info.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#user-info a {
+    color: black;
+    text-decoration: none;
+}
+
+#user-info a:hover {
+    color: rgb(0, 196, 119);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 15px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 17px;
+    width: 17px;
+    left: 0;
+    bottom: -1px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    box-shadow: 0px 0 10px 0px rgba(70, 70, 70, 0.3);
+}
+
+.switch input:checked + .slider {
+    background-color: #00cb84;
+}
+
+.switch input:focus + .slider {
+    box-shadow: 0 0 1px #00cb84;
+}
+
+.switch input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.form.inner-form {
+    padding: 35px 0;
+}
+.btn {
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: rgb(0 196 119);
+    color: white;
+    border: none;
+    font-size: 18px;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.5s ease;
+    width: 87%;
+    box-sizing: border-box;
+}
+
+button.btn:hover {
+    background-color: #1c7c80;
+}
+
+.rows {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.custom-label {
+    font-size: 19px;
+    font-weight: bold;
+    text-align: right;
+    align-self: flex-end; 
+    margin-right: 7%;
+    margin-bottom: 10px;
+}
+
+.rows input[type="text"] {
+    text-align: right;
+    background-color: rgb(243, 247, 253);
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 80%;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.rows input[type="text"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
 }

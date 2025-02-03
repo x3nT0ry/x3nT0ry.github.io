@@ -12,6 +12,7 @@ export const campaigns = {
             id: 0,
             type: 0,
             all: true,
+            
         };
     },
     mounted: function () {
@@ -129,9 +130,23 @@ export const campaigns = {
 
                 </div> 
                 <div class="w20 al ptb20"> 
+                    <a class="btnS" href="#" @click.prevent="parent.formData={};$refs.new.active=1"><i class="fas fa-plus"></i> New</a>
                 </div> 
             </div>
-    
+        <popup ref="new" :title="(parent.formData && parent.formData.id) ? 'Edit campaign' : 'New campaign'">
+            <div class="form inner-form"> 
+                <form @submit.prevent="action()" v-if="parent.formData"> 
+                    <div class="rows"> 
+                        <label class="custom-label" >Name</label> 
+                        <input type="text" v-model="parent.formData.title" required> 
+                    </div> 
+                    <div class="rows"> 
+                        <button class="btn" v-if="parent.formData && parent.formData.id">Edit</button> 
+                        <button class="btn" v-if="parent.formData && !parent.formData.id">Add</button> 
+                    </div> 
+                </form> 
+            </div> 
+        </popup>
             <div class="table" v-if="data.items != ''"> 
                 <table> 
                     <thead> 
@@ -150,6 +165,7 @@ export const campaigns = {
                         <tr v-for="(item, i) in data.items" >
                             <td class="id">{{ item.id }}</td> 
                             <td class="id"> 
+                            <toogle v-model="item.published" @update:modelValue="parent.formData = item; action();" />
                             </td> 
                             <td>
                                 <router-link :to="'/campaign/' + item.id">{{ item.title }}</router-link>
@@ -162,19 +178,19 @@ export const campaigns = {
                             <td class="id"> 
                                 <a href="#" @click.prevent="$refs.details.active = 1; getDetails(item.id, 2)"> 
                                     <template v-if="item.clicks">{{ item.clicks }}</template> 
-                                    <template v-else>0</template> 
+                                    <template v-if="!item.clicks">0</template>
                                 </a> 
                             </td>
                             <td class="id"> 
                                 <a href="#" @click.prevent="$refs.details.active = 1; getDetails(item.id, 3)"> 
                                     <template v-if="item.leads">{{ item.leads }}</template> 
-                                    <template v-else>0</template> 
+                                   <template v-if="!item.leads">0</template>
                                 </a> 
                             </td> 
                             <td class="id"> 
                                 <a href="#" @click.prevent="$refs.details.active = 1; getDetails(item.id, 4)"> 
                                     <template v-if="item.fclicks">{{ item.fclicks }}</template> 
-                                    <template v-else>0</template> 
+                                   <template v-if="!item.fclicks">0</template>
                                 </a> 
                             </td> 
                             <td class="actions"> 

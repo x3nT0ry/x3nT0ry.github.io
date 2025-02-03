@@ -37,7 +37,7 @@ export const popup = {
         
         <div class="flex head-popup">
           <div class="w8O ptb2O">
-            <div class="head-title">Please confirm next action</div>
+            <div class="head-title">{{title}}</div>
           </div>
           <div class="w2O a1 ptb2O">
             <a href="#" @click.prevent="active = 0">
