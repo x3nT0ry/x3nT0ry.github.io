@@ -106,8 +106,8 @@ export const msg = {
           {{confirm}}  <i class="fas fa-info-circle"></i> 
         </div>
         <div class="botBtns"> 
-          <a class="btnS" href="#" @click.prevent="code=1">Yes</a> 
-          <a class="btnS" href="#" @click.prevent="code=2">No</a> 
+          <a class="btnSS" href="#" @click.prevent="code=1">Yes</a> 
+          <a class="btnSS" href="#" @click.prevent="code=2">No</a> 
         </div> 
       </div> 
     </popup>
