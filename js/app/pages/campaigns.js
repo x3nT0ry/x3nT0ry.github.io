@@ -49,10 +49,12 @@ export const campaigns = {
                 .then(function (response) {
                     self.data = response.data;
                     self.loader = 0;
+                    if(self.iChart!=-1) self.line(self.data.items[self.iChart]);
                 })
                 .catch(function (error) {
                     self.parent.logout();
                 });
+         
         },
         action: function () {
             var self = this;
@@ -67,7 +69,11 @@ export const campaigns = {
                 )
                 .then(function (response) {
                     self.$refs.new.active = 0;
-                    if (self.parent.formData.id) {
+                    if (response.data.error) {
+                        self.$refs.header.$refs.msg.alertFun(
+                            response.data.error
+                        );
+                    } else if (self.parent.formData.id) {
                         self.$refs.header.$refs.msg.successFun(
                             "Successfully updated campaign!"
                         );
