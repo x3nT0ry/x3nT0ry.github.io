@@ -49,12 +49,12 @@ export const campaigns = {
                 .then(function (response) {
                     self.data = response.data;
                     self.loader = 0;
-                    if(self.iChart!=-1) self.line(self.data.items[self.iChart]);
+                    if (self.iChart != -1)
+                        self.line(self.data.items[self.iChart]);
                 })
                 .catch(function (error) {
                     self.parent.logout();
                 });
-         
         },
         action: function () {
             var self = this;
@@ -143,7 +143,7 @@ export const campaigns = {
                     </div>
                     <canvas id="myChart"></canvas>
                 `;
-                
+
                 const ctx = document.getElementById("myChart");
                 const xScaleImage = {
                     id: "xScaleImage",
@@ -261,9 +261,9 @@ export const campaigns = {
             <popup ref="chart" fullscreen="true" title="Chart">
                 <div class="flex panels">
                     <div class="w30 ptb25">
-                        <input type="date" v-model="date" @change="get();" />
+                        <input class="data" type="date" v-model="date" @change="get();" />
                         <span style="font-size: 17px; font-weight: bold;"> - </span> 
-                        <input type="date" v-model="date2" @change="get()" />
+                        <input class="data" type="date" v-model="date2" @change="get()" />
                     </div>
                     <div class="w70 a1">
                         <div class="flex cubes">

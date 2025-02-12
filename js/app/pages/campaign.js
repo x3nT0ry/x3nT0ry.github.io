@@ -202,19 +202,46 @@ export const campaign = {
                         dates.push(i);
                         clicks.push(item["line"][i].clicks);
                         views.push(item["line"][i].views);
-                        leads.push(item["line"][i].leads);
                     }
                 }
 
                 document.getElementById("chartOuter").innerHTML = `
-                <div id="chartHints">
-                  <div class="chartHintsViews">Views</div>
-                  <div class="chartHintsClicks">Clicks</div>
-                </div>
-                <canvas id="myChart"></canvas>
+                  <div id="chartHints">
+                      <div class="chartHintsViews">Views</div>
+                      <div class="chartHintsClicks">Clicks</div>
+                  </div>
+                  <canvas id="myChart"></canvas>
               `;
 
                 const ctx = document.getElementById("myChart");
+                const xScaleImage = {
+                    id: "xScaleImage",
+                    afterDatasetsDraw(chart, args, plugins) {
+                        const {
+                            ctx,
+                            data,
+                            chartArea: { bottom },
+                            scales: { x },
+                        } = chart;
+                        ctx.save();
+                        if (data.images) {
+                            data.images.forEach((image, index) => {
+                                const label = new Image();
+                                label.src = image;
+
+                                const width = 120;
+                                ctx.drawImage(
+                                    label,
+                                    x.getPixelForValue(index) - width / 2,
+                                    x.top,
+                                    width,
+                                    width
+                                );
+                            });
+                        }
+                    },
+                };
+
                 new Chart(ctx, {
                     type: "line",
                     data: {
@@ -229,7 +256,7 @@ export const campaign = {
                             {
                                 label: "Views",
                                 backgroundColor: "#500088",
-                                borderColor: "#500088",
+                                borderColor: "#5000B8",
                                 data: views,
                                 yAxisID: "y2",
                             },
@@ -243,7 +270,7 @@ export const campaign = {
                                 usePointStyle: true,
                                 callbacks: {
                                     title: (ctx) => {
-                                        return ctx[0].dataset.label;
+                                        return ctx[0]["dataset"].label;
                                     },
                                 },
                             },
@@ -289,7 +316,7 @@ export const campaign = {
   
         <div class="panelTop">
           <div class="wrapper">
-            <div class="flexs">
+            <div class="flexsn">
               <div class="w30 ptb30">
                 <h1 v-if="data && data.info">{{data.info.title}}</h1>
               </div>
@@ -315,9 +342,9 @@ export const campaign = {
         <popup ref="chart" fullscreen="true" title="Chart">
                 <div class="flex panels">
                     <div class="w30 ptb25">
-                        <input type="date" v-model="date" @change="get();" />
+                        <input class="data" type="date" v-model="date" @change="get();" />
                         <span style="font-size: 17px; font-weight: bold;"> - </span> 
-                        <input type="date" v-model="date2" @change="get()" />
+                        <input class="data" type="date" v-model="date2" @change="get()" />
                     </div>
                     <div class="w70 a1">
                         <div class="flex cubes">

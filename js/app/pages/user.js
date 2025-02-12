@@ -340,7 +340,7 @@ export const user = {
   
     <div class="panelTop">
       <div class="wrapper">
-        <div class="flexs">
+        <div class="flexes">
           <div class="w30 ptb15 pbe">
             <h1 class="sz" v-if="data && data.info">{{ data.info.user }}</h1>
           </div>
@@ -416,9 +416,9 @@ export const user = {
       <popup ref="chart" fullscreen="true" title="Chart"> 
           <div class="flex panels">
             <div class="w30 ptb25">
-              <input type="date" v-model="date" @change="get();" />
+              <input class="data"  type="date" v-model="date" @change="get();" />
               <span style="font-size: 17px; font-weight: bold;"> - </span>
-              <input type="date" v-model="date2" @change="get()" />
+              <input class="data"  type="date" v-model="date2" @change="get()" />
             </div>
             <div class="w70 a1">
               <div class="flex cubes">
@@ -442,8 +442,7 @@ export const user = {
             </div>
           </div>
   
-          <div class="flex body">
-            <div class="w30 ar filchart"></div>
+          <div class="flex bodys">
             <div class="w70" id="chartOuter">
               <div id="chartHints">
                 <div class="chartHintsViews">Views</div>

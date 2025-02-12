@@ -1,5 +1,5 @@
 export const header = {
-    data: function () {
+    data() {
         return {
             user: {},
             parent: "",
@@ -7,11 +7,13 @@ export const header = {
             menu: 0,
         };
     },
-    watch: {},
     mounted() {
         this.parent = this.$parent.$parent.$parent;
     },
     methods: {
+        menu1() {
+            this.menu = this.menu === 0 ? 1 : 0;
+        },
         toogleActive() {
             this.active = this.active === 1 ? 0 : 1;
         },
@@ -25,13 +27,18 @@ export const header = {
                     </div>
                     <div class="w70">
                         <div id="menu">
-                            <ul :class="{ active: menu == 1 }" v-if="parent.user && parent.user.type && parent.user.type == 'admin'">
+                            <i class="fas fa-bars" @click="menu1"></i>
+
+                            <ul :class="{ active: menu == 1 }" 
+                                v-if="parent.user && parent.user.type && parent.user.type == 'admin'">
                                 <li v-if="menu == 1" class="a1">
                                     <i class="fas fa-times" @click="menu = 0"></i>
                                 </li>
                                 <li>
                                     <router-link
-                                        :class="{ 'router-link-active': $route.path.search('campaign') == 1 }"
+                                        :class="{ 
+                                            'router-link-active': $route.path.search('campaign') == 1 
+                                        }"
                                         to="/campaigns"
                                     >
                                         <i class="fas fa-bullhorn"></i> Campaigns
@@ -39,14 +46,18 @@ export const header = {
                                 </li>
                                 <li>
                                     <router-link
-                                        :class="{ 'router-link-active': $route.path.search('user') == 1 }"
+                                        :class="{ 
+                                            'router-link-active': $route.path.search('user') == 1 
+                                        }"
                                         to="/users"
                                     >
                                         <i class="fas fa-users"></i> Users
                                     </router-link>
                                 </li>
                             </ul>
-                            <ul :class="{ active: menu == 1 }" v-if="parent.user && parent.user.type && parent.user.type != 'admin'">
+
+                            <ul :class="{ active: menu == 1 }" 
+                                v-if="parent.user && parent.user.type && parent.user.type != 'admin'">
                                 <li v-if="menu == 1" class="a1">
                                     <i class="fas fa-times" @click="menu = 0"></i>
                                 </li>
@@ -79,7 +90,8 @@ export const header = {
                         </div>
                         <div id="user-info" :class="{ active: active == 1 }">
                             <a href="#" @click.prevent="parent.logout()">
-                                <i class="fas fa-sign-out-a1t"></i> {{ parent.user.user }} Log out
+                                <i class="fas fa-sign-out-a1t"></i> 
+                                {{ parent.user.user }} Log out
                             </a>
                         </div>
                         <i @click="toogleActive()" class="fas fa-caret-down"></i>

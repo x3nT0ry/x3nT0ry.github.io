@@ -55,6 +55,10 @@ body {
     font-size: 21px;
     color: white;
 }
+#menu > i,
+#menu > li {
+    display: none;
+}
 
 .forms.inner-form.p20 {
     background-color: rgb(240 247 250);
@@ -65,7 +69,16 @@ body {
     align-items: center;
     box-sizing: border-box;
 }
-
+.data {
+    padding: 0 15px;
+    font-family: sans-serif;
+    font-size: 15px;
+    background-color: rgb(243 247 253);
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 10px;
+    height: 40px;
+    max-width: 120px;
+}
 .forms.inner-form.p20 form {
     width: 100%;
     display: flex;
@@ -365,12 +378,14 @@ body {
 }
 
 input[type="date"] {
-    padding: 10px 15px;
+    padding: 0 15px;
     font-family: sans-serif;
     font-size: 15px;
     background-color: rgb(243 247 253);
     border: 1px solid rgb(202, 202, 202);
     border-radius: 10px;
+    height: 40px;
+    max-width: 120px;
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 0;
@@ -500,7 +515,7 @@ a:hover {
 .t-s td.link {
     text-align: right;
 }
-.t-s th.images{
+.t-s th.images {
     text-align: center;
 }
 .t-s th.image,
@@ -675,17 +690,9 @@ header {
 }
 
 #menu ul li a.router-link-active {
+    padding-bottom: 24px;
+    border-bottom: 5px solid rgb(0, 196, 119);
     color: rgb(0, 196, 119);
-}
-
-#menu ul li a.router-link-active::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background-color: rgb(0, 196, 119);
 }
 
 #menu ul li a:hover {
@@ -863,7 +870,10 @@ button.btn:hover {
     border-radius: 10px;
     width: 92%;
     transition: border-color 0.3s, box-shadow 0.3s;
+    max-width: none;
+    height: 15px;
 }
+
 .rows input[type="date"]:focus {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
@@ -919,8 +929,19 @@ button.btn:hover {
 .panelTop {
     background-color: #d5f3ec;
 }
-
+.flexsn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+}
 .flexs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+.flexes {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -999,7 +1020,11 @@ button.btn:hover {
     padding: 15px 15px;
     text-align: right;
 }
-
+.flex.bodys {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
 .w30.ctr {
     width: 30%;
     background-color: rgb(254, 254, 254);
@@ -1182,19 +1207,537 @@ p {
 .ptb14 {
     display: flex;
 }
-.ptb17{
+.ptb17 {
     font-size: 15px;
     padding: 17px 0;
 }
-.w9{
+.w9 {
     text-align: right;
     width: 9%;
 }
-.w69{
+.w69 {
     width: 70%;
 }
-.ptb19 h1{
+.ptb19 h1 {
     font-size: 22px;
     padding: 20px 0;
     color: rgb(66, 69, 75);
+}
+@media (max-width: 1860px) {
+    .t-f th:nth-child(3),
+    .t-f td:nth-child(3) {
+        width: 45%;
+    }
+    .w20 {
+        width: 19%;
+    }
+    #user-top {
+        padding-left: 20px;
+    }
+    .header .w20 {
+        padding-right: 20px;
+    }
+    .wrapper {
+        padding: 0;
+    }
+    .forms.inner-form.p20 form {
+        margin-bottom: 0;
+    }
+    .w2O.a1.ptb2O {
+        padding-left: 10px;
+    }
+    .w28.al.ptb15.pb0 {
+        margin-left: 10px;
+    }
+    p,
+    .tabs.ar,
+    .sz,
+    .w30.ptb30 h1 {
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 1160px) {
+    .forms.inner-form.p20 form {
+        margin-bottom: 0;
+    }
+    .forms.inner-form.p20 {
+        padding-top: 10px;
+    }
+    .forms .row label {
+        margin-right: 8%;
+    }
+
+    .forms .row input {
+        width: 85%;
+    }
+    .forms .row button.btn {
+        width: 85%;
+    }
+    .w10.ptb30 h1 {
+        padding-right: 10px;
+        font-size: 21px;
+    }
+    .w20.ptb30 h1 {
+        font-size: 21px;
+    }
+    .wrapper {
+        padding: 0;
+    }
+    .t-f th:nth-child(3),
+    .t-f td:nth-child(3) {
+        width: 35%;
+    }
+    .w20 {
+        width: 19%;
+    }
+    #user-top {
+        padding-left: 20px;
+    }
+    .header .w20 {
+        padding-right: 20px;
+    }
+    .popup {
+        overflow-y: auto;
+    }
+    .data {
+        height: 35px !important;
+        max-width: 98px !important;
+    }
+}
+@media (max-width: 969px) {
+    .flex.panels {
+        display: flex;
+        flex-direction: column;
+    }
+    .flex.body {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .w30.ar.filchart {
+        margin-top: 5%;
+        width: 100%;
+        height: 100%;
+        padding-right: 0;
+    }
+    #chartOuter {
+        width: 96%;
+        height: 100%;
+    }
+    .itemchart.ptb10 {
+        padding-right: 20px;
+    }
+    .w70.a1 {
+        width: 100%;
+    }
+    .flex.cubes {
+        margin-right: auto;
+    }
+    .w30.ptb25 {
+        width: 100%;
+        margin-left: -2%;
+    }
+
+    .forms.inner-form.p20 form {
+        margin-bottom: 0;
+    }
+    .forms.inner-form.p20 {
+        padding-top: 10px;
+    }
+    .btnS {
+        font-size: 14px;
+    }
+    .w2O.a1.ptb2O {
+        padding-left: 10px;
+    }
+
+    .w30.ptb30 h1 {
+        padding-right: 10px;
+    }
+}
+@media (max-width: 824px) {
+    #chartOuter {
+        width: 96%;
+        height: 100%;
+    }
+    .w30.ar.filchart {
+        height: 100%;
+        padding-right: 0;
+    }
+    .w30.clicks > div,
+    .w30.views > div,
+    .w30.leads > div,
+    .w30.ctr > div {
+        font-size: 15px;
+    }
+    .w30.clicks,
+    .w30.views,
+    .w30.leads,
+    .w30.ctr {
+        font-size: 30px;
+    }
+
+    .w2O.a1.ptb2O {
+        padding-left: 10px;
+    }
+    .w30.ptb30 h1 {
+        padding-right: 10px;
+    }
+    .popup {
+        overflow-y: auto;
+        left: 0 !important;
+        top: 0 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        max-height: 100%;
+    }
+    .header .w20,
+    .header .w70,
+    .header .w10 {
+        display: flex;
+        justify-content: flex-end;
+    }
+    #menu ul {
+        display: none;
+    }
+
+    #menu i.fas.fa-bars {
+        display: flex;
+        font-size: 1.4rem;
+        color: #fff;
+        cursor: pointer;
+    }
+    #menu ul li a.router-link-active {
+        padding-bottom: 0;
+        border-bottom: 0;
+        color: rgb(0, 196, 119);
+    }
+    #menu ul.active {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #313131;
+        text-align: center;
+        z-index: 9999;
+    }
+    #menu ul li a {
+        justify-content: center;
+        padding: 10px 0;
+    }
+    #menu ul.active li {
+        margin: 15px 0;
+    }
+
+    #menu ul.active a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+    .a1 .fa-times {
+        color: #fff;
+        font-size: 1.2rem;
+        cursor: pointer;
+        margin: 0 15px;
+    }
+
+    .btn {
+        width: 97%;
+    }
+    .w2O.a1.ptb2O {
+        padding-left: 10px;
+    }
+    .w30.ptb30 h1 {
+        font-size: 28px;
+        padding-right: 10px;
+    }
+    .btnS {
+        margin: 0;
+        font-size: 0;
+        gap: 0;
+    }
+    .btnS i {
+        font-size: 16px;
+        line-height: 19px;
+    }
+
+    .table {
+        overflow-x: auto;
+    }
+    .forms.inner-form.p20 form {
+        margin-bottom: 0;
+    }
+    .forms.inner-form.p20 {
+        padding-top: 30px;
+    }
+    #left-area {
+        display: none;
+    }
+    #right-area.w40 {
+        width: 100%;
+    }
+}
+@media (max-width: 740px) {
+    #chartOuter {
+        width: 91%;
+        height: 100%;
+    }
+    .w30.ar.filchart {
+        height: 100%;
+        padding-right: 0;
+    }
+    .w30.clicks > div,
+    .w30.views > div,
+    .w30.leads > div,
+    .w30.ctr > div {
+        font-size: 15px;
+    }
+    .w30.clicks,
+    .w30.views,
+    .w30.leads,
+    .w30.ctr {
+        font-size: 26px;
+    }
+
+    .w30.ptb30 {
+        width: 75%;
+    }
+    .w20.ptb30 h2 {
+        font-size: 20px;
+    }
+    .forms.inner-form.p20 {
+        padding-top: 10px;
+    }
+    .forms.inner-form.p20 form {
+        margin-bottom: 0;
+    }
+    .forms .row {
+        margin-bottom: 15px;
+    }
+    .header .w70 {
+        width: 70%;
+    }
+    .header .w10 {
+        width: 15%;
+    }
+    .w30.ptb30 h1 {
+        font-size: 26px;
+    }
+}
+@media (max-width: 510px) {
+    .w30.ptb25 {
+        margin: 0;
+        margin-left: -2%;
+    }
+    .w30.ar.filchart {
+        height: 100%;
+        padding-right: 0;
+    }
+    #chartOuter {
+        width: 95%;
+        height: 100%;
+    }
+    .w30.clicks > div,
+    .w30.views > div,
+    .w30.leads > div,
+    .w30.ctr > div {
+        font-size: 13px;
+    }
+    .w30.clicks,
+    .w30.views,
+    .w30.leads,
+    .w30.ctr {
+        padding: 10px 10px;
+        font-size: 19px;
+    }
+    .w30.ptb30 h1 {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .w20.a1.ptb14 {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 15px;
+    }
+    .w30.ptb9 h2 {
+        margin: 0;
+        padding-top: 5px;
+    }
+
+    .w9.ptb19 h1 {
+        padding-bottom: 0;
+    }
+    .w20.ptb17 {
+        padding-bottom: 0;
+    }
+    .w30.ptb9,
+    .w9.ptb19,
+    .w20.a1.ptb19,
+    .w20.ptb17,
+    .w30.ptbs10,
+    .w20.ptb10,
+    .w10.ptb30,
+    .w20.ptb30 {
+        width: 90%;
+    }
+    .w10.ptb30,
+    .w20.ptb30 h1 {
+        display: flex;
+        justify-content: end;
+    }
+
+    .w20.ptb17 h2,
+    .w20.ptb30 h2 {
+        margin: 0;
+    }
+    .flexs {
+        padding-bottom: 15px;
+    }
+    .ptb30 {
+        padding: 10px 0;
+    }
+    .ac {
+        padding: 10px 0;
+    }
+    .ptb20 {
+        padding: 10px 0;
+    }
+    .header .w70 {
+        width: 55%;
+    }
+    #user-circle {
+        height: 39px;
+    }
+    .flex.panel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .flex.panel,
+    .flexs {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .w40.logo img {
+        width: 60px;
+    }
+    .w60.al1 h1 {
+        font-size: 21px;
+    }
+
+    .forms.inner-form.p20 {
+        padding-top: 30px;
+    }
+
+    .btn {
+        width: 99%;
+    }
+    .w60 {
+        width: 90%;
+    }
+    input[type="date"] {
+        height: 40px;
+        max-width: 110px;
+    }
+    .w30.ptb30 {
+        width: 70%;
+    }
+    .w20.al.ptb20 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .w30.ptb15.pbe {
+        width: 100%;
+    }
+
+    .w50 {
+        width: 100%;
+    }
+    .tabs.ar {
+        padding: 13px 0;
+        justify-content: center;
+        width: 100%;
+    }
+}
+@media (max-width: 432px) {
+    #chartOuter {
+        width: 92%;
+        height: 100%;
+    }
+    .w30.clicks > div,
+    .w30.views > div,
+    .w30.leads > div,
+    .w30.ctr > div {
+        font-size: 12px;
+    }
+    .w30.clicks,
+    .w30.views,
+    .w30.leads,
+    .w30.ctr {
+        padding: 10px 10px;
+        font-size: 15px;
+    }
+    .w60 {
+        width: 90%;
+    }
+    input[type="date"] {
+        height: 40px;
+        max-width: 98px;
+    }
+    .header .w70 {
+        width: 45%;
+    }
+    .header .w10 {
+        width: 16%;
+    }
+    .w30.ptb30 {
+        width: 90%;
+    }
+    .w30.ptb30 h1 {
+        font-size: 22px;
+    }
+    .btnS {
+        padding: 7px 11px;
+    }
+}
+@media (max-width: 320px) {
+    #chartOuter {
+        width: 92%;
+        height: 100%;
+    }
+    .w30.ar.filchart {
+        height: 100%;
+    }
+    .w20.ptb30 h2 {
+        font-size: 15px;
+    }
+    .w30.ptb30 h1 {
+        font-size: 16px;
+    }
+    .w30.ptb30 {
+        width: 100%;
+    }
+    .header .w70 {
+        width: 40%;
+    }
+    .header .w10 {
+        width: 17%;
+    }
+    .w60 {
+        width: 90%;
+    }
+    input[type="date"] {
+        height: 40px;
+        max-width: 97px;
+    }
 }
